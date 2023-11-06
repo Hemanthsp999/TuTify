@@ -10,7 +10,7 @@ function Navbar({onSearch}) {
   }
   return (
     <>
-      <div className=" w-full flex justify-around text-3xl py-8 gap-1 bg-blue-800">
+      <div className=" w-full flex justify-end text-3xl py-8 gap-2 bg-blue-800">
        <Link className=" mx-2 hover:text-orange-500 hover:bg-green-300 px-2 rounded-2xl text-white font-bold">Home</Link>
        <Link className=" mx-2 hover:text-orange-500 hover:bg-green-300 px-2 rounded-2xl text-white font-bold">About us</Link>
        <Link className=" mx-2 hover:text-orange-500 hover:bg-green-300 px-2 rounded-2xl text-white font-bold">SignUp</Link>

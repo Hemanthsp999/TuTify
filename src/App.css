@@ -9,7 +9,10 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: black; 
+    background-image: url(./assets/12.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: black; */
     height: 100vh;
     display: flex;
     flex-direction: column;

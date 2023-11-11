@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
-    };
+    }
     return (
         <>
             <div className=" my-80 bg-blue-600 h-96 rounded-3xl py-4 px-4">
@@ -26,9 +27,9 @@ function Login() {
                         {showPassword ? '👁️' : '👁️'}
                     </span>
                 </div>
-                <div>
-                    <button className=" my-10 mx-20 text-6xl font-bold bg-red-500 h-20 px-2 py-2 rounded-2xl hover:bg-blue-800 hover:text-white">Login</button>
-                </div>
+                <Link to="/">
+                    <button className=" my-10 mx-20 text-6xl font-bold bg-red-500 h-20 px-2 py-2 rounded-2xl hover:bg-blue-800 hover:text-white" >Login</button>
+                </Link>
             </div>
         </>
     )

@@ -6,12 +6,18 @@ import ToDo from "../page/todolist";
 import Login from "../page/Login";
 import About from "../page/About";
 import Logout from "../page/Logout";
+import Start from "../page/Start";
+import SignUp from "../page/Signup";
 
 
 const router=createBrowserRouter(
     [
         {
             path:"/",
+            element:<Start/>
+        },
+        {
+            path:"/home",
             element:<Navbar/>,
         },
         {
@@ -21,6 +27,10 @@ const router=createBrowserRouter(
         {
             path:"/login",
             element:<Login/>,
+        },
+        {
+            path:"/signup",
+            element:<SignUp/>
         },
         {
             path:"/about",

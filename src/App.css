@@ -6,10 +6,9 @@ html {
     height: 100vh;
 }
 
-body {
+/* body {
     margin: 0;
     padding: 0;
-    background-image: url(./assets/12.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -17,4 +16,4 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  
+   */

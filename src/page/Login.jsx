@@ -39,9 +39,7 @@ function Login() {
                         </span>
                     </div>
                     <Link to="/signup" className=" my-2 mx-20 text-2xl font-bold hover:text-green-500">new user</Link>
-                    <Link to="/home">
                         <button className=" my-2 mx-20 text-6xl font-bold bg-red-500 h-20 px-2 py-2 rounded-2xl hover:bg-blue-800 hover:text-white" onSubmit={onClickSubmit} >Submit</button>
-                    </Link>
                 </div>
             </div>
         </>

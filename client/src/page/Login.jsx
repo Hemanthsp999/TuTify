@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [password, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword(!password);
   };
 
   const handleOneSubmit = async (e) => {
-    e.preventDefault;
+    e.preventDefault();
     const jsonObj = {
       email: email,
-      showPassword: showPassword,
+      password: password,
     };
-    console.log("email/pass", email, showPassword);
-    var dataObj = JSON.stringify(jsonObj);
+    const DecodeJson = jsonObj;
+    console.log(jsonObj);
+    var dataObj = JSON.stringify(DecodeJson);
     fetch("http://localhost:4040/login", {
       method: "POST",
       headers: {
@@ -28,13 +31,16 @@ function Login() {
         return response.json();
       })
       .then(function(data) {
-        console.log(data);
+        console.log("data", data);
+        if (data === "404") {
+          console.log("error");
+        } else {
+          navigate("/home");
+          
+        }
       });
   };
 
-  useEffect(() => {
-    handleOneSubmit;
-  });
   return (
     <>
       <div className=" grid grid-cols-2 gap-4">
@@ -61,16 +67,16 @@ function Login() {
             <div className="relative">
               <input
                 className="mx-3 w-80 text-xl rounded-xl font-bold px-5"
-                type={showPassword ? "text" : "password"}
+                type={password ? "text" : "password"}
                 placeholder="enter password..."
-                value={showPassword}
+                value={password}
                 onChange={(e) => setShowPassword(e.target.value)}
               />
               <span
                 className=" absolute top-1 right-4 cursor-pointer "
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? "👁️" : "👁️"}
+                {password ? "👁️" : "👁️"}
               </span>
             </div>
             <Link

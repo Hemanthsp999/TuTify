@@ -65,28 +65,26 @@ func (App *Application) SignUp(w http.ResponseWriter, r *http.Request) {
 		jsonData := make(map[string]interface{})
 		json.Unmarshal([]byte(sb), &jsonData)
 
-		fname, _ := jsonData["First Name"].(string)
-		lname, _ := jsonData["Last Name"].(string)
-		pass, _ := jsonData["Password"].(string)
+		name, _ := jsonData["name"].(string)
+		pass, _ := jsonData["pass"].(string)
 		email, _ := jsonData["email"].(string)
-		usn, _ := jsonData["USN"].(string)
+		usn, _ := jsonData["usn"].(string)
 		department, _ := jsonData["department"].(string)
-		dId, _ := jsonData["dId"].(string)
+		dId, _ := jsonData["id"].(string)
 		stream, _ := jsonData["stream"].(string)
-		phone, _ := jsonData["PhoneNumber"].(string)
-		rePass, _ := jsonData["RePassword"].(string)
+		phoneNumber, _ := jsonData["phoneNumber"].(string)
+		rePass, _ := jsonData["rePass"].(string)
 
 		if pass == rePass {
 			hashPass, _ := Hash(pass)
 			User := model.User{
-				Fname:      fname,
-				Lname:      lname,
+				Name:      name,
 				Email:      email,
 				USN:        usn,
 				Department: department,
 				DId:        dId,
 				Stream:     stream,
-				Phone:      phone,
+				Phone:      phoneNumber,
 				Password:   hashPass,
 			}
 
@@ -127,7 +125,7 @@ func (App *Application) Login(w http.ResponseWriter, r *http.Request) {
 		jsonData := make(map[string]interface{})
 		json.Unmarshal([]byte(sb), &jsonData)
 		email, _ := jsonData["email"].(string)
-		pass, _ := jsonData["pass"].(string)
+		pass, _ := jsonData["password"].(string)
 
 		db_User, db_err := database.Db.GetUserbyId(email)
 		if db_err != nil {
@@ -142,11 +140,13 @@ func (App *Application) Login(w http.ResponseWriter, r *http.Request) {
 				return
 			} else {
 				fmt.Printf("\n\nvalid password: %v\n\n", password_err == nil)
-				json.NewEncoder(w).Encode(http.StateActive)
+				jsonBody, err := json.Marshal(db_User)
+				if err != nil {
+					panic(err)
+				}
+				json.NewEncoder(w).Encode(jsonBody)
 			}
 		}
 		// returning the data to client
-		json.Marshal(db_User)
-		json.NewEncoder(w).Encode(&db_User)
 	}
 }

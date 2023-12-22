@@ -1,8 +1,7 @@
 package model
 
 type User struct {
-	Fname      string `json:"First Name,omitempty"`
-	Lname      string `json:"Last Name,omitempty"`
+	Name      string `json:"name,omitempty"`
 	Email      string `json:"email,omitempty"`
 	Phone      string `json:"Phone Number,omitempty"`
 	USN        string `json:"USN,omitempty"`

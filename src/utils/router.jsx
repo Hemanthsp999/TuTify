@@ -2,35 +2,49 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import Navbar from "../page/Navbar";
-import ToDo from "../page/todolist";
 import Login from "../page/Login";
-import About from "../page/About";
-import Logout from "../page/Logout";
+import Start from "../page/Start";
+import SignUp from "../page/Signup";
+import Student from "../page/sudent";
+import Teacher from "../page/teacher";
+import Profile from "../page/Profile";
+import Notification from "../page/Notification";
 
 
 const router=createBrowserRouter(
     [
         {
             path:"/",
+            element:<Start/>
+        },
+        {
+            path:"/home",
             element:<Navbar/>,
         },
         {
-            path:"/todolist",
-            element:<ToDo/>,
+            path:"/notification",
+            element:<Notification/>,
         },
         {
             path:"/login",
             element:<Login/>,
         },
         {
-            path:"/about",
-            element:<About/>,
+            path:"/signup",
+            element:<SignUp/>
         },
         {
-            path:"/logout",
-            element:<Logout/>,
+            path:"/profile",
+            element:<Profile/>,
         },
-
+        {
+            path:"/student",
+            element:<Student/>
+        },
+        {
+            path:"/teacher",
+            element:<Teacher/>
+        },
     ],
 )
 export { router}

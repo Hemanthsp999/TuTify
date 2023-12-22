@@ -2,12 +2,13 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import Navbar from "../page/Navbar";
-import ToDo from "../page/todolist";
 import Login from "../page/Login";
-import About from "../page/About";
-import Logout from "../page/Logout";
 import Start from "../page/Start";
 import SignUp from "../page/Signup";
+import Student from "../page/sudent";
+import Teacher from "../page/teacher";
+import Profile from "../page/Profile";
+import Notification from "../page/Notification";
 
 
 const router=createBrowserRouter(
@@ -21,8 +22,8 @@ const router=createBrowserRouter(
             element:<Navbar/>,
         },
         {
-            path:"/todolist",
-            element:<ToDo/>,
+            path:"/notification",
+            element:<Notification/>,
         },
         {
             path:"/login",
@@ -33,14 +34,17 @@ const router=createBrowserRouter(
             element:<SignUp/>
         },
         {
-            path:"/about",
-            element:<About/>,
+            path:"/profile",
+            element:<Profile/>,
         },
         {
-            path:"/logout",
-            element:<Logout/>,
+            path:"/student",
+            element:<Student/>
         },
-
+        {
+            path:"/teacher",
+            element:<Teacher/>
+        },
     ],
 )
 export { router}

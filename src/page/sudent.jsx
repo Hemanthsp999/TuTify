@@ -57,11 +57,13 @@ function Student() {
                     <h5 className=" mx-5 my-1 text-2xl font-bold text-white">Mobile Number</h5>
                     <input className=" mx-3 my-1 w-80 text-xl rounded-xl font-bold px-5" type="text" placeholder="enter number..." />
                 </div>
+                <form id="student-register-form" method="post" onSubmit={(e)=>onClickSubmit(e)}>
                 <div>
-                    <button className=" mx-52 my-10 text-5xl font-bold text-white bg-blue-500 px-2 py-2 rounded-2xl hover:bg-red-500 hover:text-black">
+                    <button className=" mx-52 my-10 text-5xl font-bold text-white bg-blue-500 px-2 py-2 rounded-2xl hover:bg-red-500 hover:text-black" type="submit">
                         SUBMIT
                     </button>
                 </div>
+                </form>
             </div>
         </>
     )
